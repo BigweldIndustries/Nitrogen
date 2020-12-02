@@ -1,5 +1,4 @@
 import os
-import time
 import sys
 import random, string
 def percent(num1, num2):
