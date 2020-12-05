@@ -1,5 +1,5 @@
 # Nitrogen
-A discord random nitro code generater that is super fast
+A discord random nitro code generater that is super fast, with a decent checker
 
 # How do I use it?
 
