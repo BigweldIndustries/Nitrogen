@@ -47,8 +47,12 @@ if start1 == "":
                                 print("Unknown status code, perhaps means code was already claimed: {code}".format(code=code.replace('\n', '')))
                             break
                         except:
-                            if request.status_code == 429:
-                                print("Rate limit on {proxies}, retry time: {retryafter}".format(proxies=proxies['http'], retryafter=response['retry_after']))
+                             if request.status_code == 429:
+                                if response['retry_after'] == 600000:
+                                    del proxies_list[proxy_index]
+                                    print("Error, unusable proxy {proxy} has been blacklisted or rate limited for a very long time. Deleted from list.".format(proxy=proxies['http']))
+                                else:
+                                    print("Rate limit on {proxies}, retry time: {retryafter}".format(proxies=proxies['http'], retryafter=response['retry_after']))
                             else:
                                 print("Unknown exception")
                             continue
