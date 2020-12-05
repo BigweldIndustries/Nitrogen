@@ -48,7 +48,7 @@ if start1 == "":
                             break
                         except:
                             if request.status_code == 429:
-                               if response['retry_after'] == 600000:
+                                if response['retry_after'] == 600000:
                                     del proxies_list[proxy_index]
                                     print("Error, unusable proxy {proxy} has been blacklisted or rate limited for a very long time. Deleted from list.".format(proxy=proxies['http']))
                                 else:
